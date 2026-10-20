@@ -82,93 +82,102 @@ weather_app/
 ## ⚙️ Setup Instructions
 
 ### 1️⃣ Install dependencies
+
 ```bash
 npm install
+```
 
-2️⃣ Create .env file in the root directory
-env
+### 2️⃣ Create a `.env` file in the root directory
 
+```env
 OPENWEATHER_API_KEY=your_openweather_key
 GNEWS_API_KEY=your_gnews_key
 NEWSAPI_API_KEY=your_newsapi_key
 PORT=3000
+```
 
-API keys are securely stored in .env and are never exposed to the frontend.
+API keys are stored in `.env` and are never exposed to the frontend.
 
-3️⃣ Run the server
+> Add `.env` to `.gitignore` to prevent API keys from being committed to GitHub.
+
+### 3️⃣ Run the server
+
+```bash
 npm start
+```
 
-4️⃣ Open in browser
-http://localhost:3000
+### 4️⃣ Open the application in your browser
 
-API Testing with Postman (Criterion 3)
+[http://localhost:3000](http://localhost:3000)
+
+---
+
+## API Testing with Postman (Criterion 3)
+
 All backend endpoints were tested using Postman.
 
-Tested Endpoints:
+### Tested Endpoints
+
+```http
 GET /api/weather?city=Almaty
-
 GET /api/news?city=London&country=GB
-
 GET /api/currency?country=KZ
+```
 
-Verified:
-HTTP Status Codes: 200, 400, 404, 500
+### Verified
 
-Correct JSON response structure
+- HTTP status codes: `200`, `400`, `404`, and `500`
+- Correct JSON response structure
+- Presence of required fields
+- Proper error handling for invalid requests
 
-Presence of required fields
+### Postman Screenshots
 
-Proper error handling for invalid requests
+![Weather API test in Postman](image.png)
 
-Postman Screenshots
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
+![News API test in Postman](image-1.png)
 
-![alt text](image-3.png)
+![Currency API test in Postman](image-2.png)
 
-Responsive Design & UI
-Fully responsive layout using CSS Grid and Media Queries
+![Error handling test in Postman](image-3.png)
 
-Optimized for:
+---
 
-Desktop
+## Responsive Design & UI
 
-Tablet
+- Fully responsive layout using CSS Grid and media queries
+- Optimized for desktop, tablet, and mobile devices
+- Clean, modern, blue-and-white color theme
+- User-friendly cards and layouts
+- Clear visual separation of weather, map, news, and currency sections
 
-Mobile devices
+---
 
-Clean, modern, blue-white color theme
+## Server Configuration
 
-User-friendly cards and layouts
+The server runs on port `3000` by default.
 
-Clear visual separation of weather, map, news, and currency sections
+### Technologies Used
 
-Server Configuration
-Server runs on port 3000
+- Express.js
+- Axios
+- CORS
+- dotenv
 
-Uses:
+All dependencies are listed in `package.json`.
 
-Express.js
+---
 
-Axios
+## Key Design Decisions
 
-CORS
+- All external API calls are handled on the server side.
+- The frontend communicates with the backend through `/api/*` routes.
+- API keys are protected using environment variables.
+- Modular routing supports scalability and readability.
+- Frontend and backend logic are clearly separated.
 
-dotenv
+---
 
-All dependencies are listed in package.json
+## Conclusion
 
-Key Design Decisions
-All API calls are handled on the server side
-
-Frontend communicates with backend via /api/* routes
-
-API keys are protected using environment variables
-
-Modular routing for scalability and readability
-
-Clean separation of frontend and backend logic
-
-Conclusion
-This project successfully integrates multiple APIs to deliver meaningful city-based information in a clean, responsive, and secure way. It follows best practices in API usage, server-side logic, project structure, and UI design.
+This project integrates multiple APIs to deliver useful city-based information through a clean and responsive interface. It demonstrates API integration, server-side logic, modular project structure, and responsive UI design.
